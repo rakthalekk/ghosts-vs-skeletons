@@ -13,7 +13,7 @@ func _physics_process(delta):
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	
 	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
-	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, false, 4, 0.9, false)
+	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 0.9, false)
 
 
 func get_direction():

@@ -2,10 +2,10 @@ class_name GroundedActor
 extends KinematicBody2D
 
 const FLOOR_NORMAL = Vector2.UP
-const FLOOR_DETECT_DISTANCE = 20.0
+const FLOOR_DETECT_DISTANCE = 30.0
 
 
-export(Vector2) var speed = Vector2(400, 1000)
+export(Vector2) var speed = Vector2(400, 1100)
 
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
