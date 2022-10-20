@@ -1,5 +1,5 @@
+class_name SkeletonPlayer
 extends GroundedActor
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,3 +35,12 @@ func calculate_move_velocity(
 	if is_jump_interrupted:
 		v.y *= 0.5
 	return v
+
+func get_holy_water():
+	var ghost = get_parent().get_node("GhostPlayer")
+	ghost.speed = Vector2(100, 100)
+	$Timer.start(5)
+
+func _on_Timer_timeout():
+	var ghost = get_parent().get_node("GhostPlayer")
+	ghost.speed = Vector2(200, 200)

@@ -1,5 +1,5 @@
+class_name GhostPlayer
 extends KinematicBody2D
-
 
 export(Vector2) var speed = Vector2(200, 200)
 
@@ -18,3 +18,12 @@ func _physics_process(delta):
 func get_direction():
 	direction = Vector2(Input.get_action_strength("ghost_move_right") - Input.get_action_strength("ghost_move_left"), 
 		Input.get_action_strength("ghost_move_down") - Input.get_action_strength("ghost_move_up")).normalized()
+
+func get_cross():
+	var skeleton = get_parent().get_node("SkeletonPlayer")
+	skeleton.speed.x = 200
+	$Timer.start(5)
+	
+func _on_Timer_timeout():
+	var skeleton = get_parent().get_node("SkeletonPlayer")
+	skeleton.speed.x = 400	
