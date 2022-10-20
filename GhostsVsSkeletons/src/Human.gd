@@ -5,7 +5,7 @@ extends GroundedActor
 # var a = 2
 # var b = "text"
 func _ready():
-	direction.x = 1
+	direction.x = 1 if randf() > 0.5 else -1
 
 
 func _physics_process(delta):
