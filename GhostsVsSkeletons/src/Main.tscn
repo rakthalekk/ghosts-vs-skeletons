@@ -12,11 +12,11 @@ margin_bottom = 40.0
 custom_constants/separation = 0
 
 [node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer"]
-margin_right = 480.0
-margin_bottom = 540.0
+margin_right = 800.0
+margin_bottom = 800.0
 
 [node name="Viewport" type="Viewport" parent="HBoxContainer/ViewportContainer"]
-size = Vector2( 480, 540 )
+size = Vector2( 800, 800 )
 handle_input_locally = false
 usage = 0
 render_target_update_mode = 3
@@ -27,19 +27,19 @@ render_target_update_mode = 3
 current = true
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
-margin_left = 480.0
-margin_right = 482.0
-margin_bottom = 540.0
+margin_left = 800.0
+margin_right = 802.0
+margin_bottom = 800.0
 rect_min_size = Vector2( 2, 0 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="ViewportContainer2" type="ViewportContainer" parent="HBoxContainer"]
-margin_left = 482.0
-margin_right = 962.0
-margin_bottom = 540.0
+margin_left = 802.0
+margin_right = 1602.0
+margin_bottom = 800.0
 
 [node name="Viewport" type="Viewport" parent="HBoxContainer/ViewportContainer2"]
-size = Vector2( 480, 540 )
+size = Vector2( 800, 800 )
 handle_input_locally = false
 usage = 0
 render_target_update_mode = 3

@@ -18,6 +18,14 @@ func _physics_process(delta):
 		$Sprite.scale.x = -1
 
 
+func skeletonify():
+	$AnimationPlayer.play("skeleton")
+
+
+func ghostify():
+	$AnimationPlayer.play("ghost")
+
+
 func _on_Timer_timeout():
 	direction.x = -direction.x
 	$Timer.start(randf())
