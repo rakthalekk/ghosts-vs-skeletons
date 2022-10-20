@@ -7,6 +7,7 @@ const FLOOR_DETECT_DISTANCE = 30.0
 
 export(Vector2) var speed = Vector2(400, 1100)
 
+var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 

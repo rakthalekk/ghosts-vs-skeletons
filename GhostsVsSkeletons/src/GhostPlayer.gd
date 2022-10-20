@@ -13,6 +13,16 @@ func _physics_process(delta):
 	velocity = direction * speed
 	
 	velocity = move_and_slide(velocity)
+	
+	if direction.length() != 0:
+		$AnimationPlayer.play("moving")
+	else:
+		$AnimationPlayer.play("idle")
+	
+	if direction.x > 0:
+		$Sprite.scale.x = 1
+	elif direction.x < 0:
+		$Sprite.scale.x = -1
 
 
 func get_direction():

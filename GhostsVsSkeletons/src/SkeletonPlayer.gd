@@ -12,8 +12,18 @@ func _physics_process(delta):
 	var is_jump_interrupted = Input.is_action_just_released("skeleton_jump") and velocity.y < 0.0
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	
-	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
+	snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
 	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 0.9, false)
+	
+	if direction.length() != 0:
+		$AnimationPlayer.play("moving")
+	else:
+		$AnimationPlayer.play("idle")
+	
+	if direction.x > 0:
+		$Sprite.scale.x = 1
+	elif direction.x < 0:
+		$Sprite.scale.x = -1
 
 
 func get_direction():
