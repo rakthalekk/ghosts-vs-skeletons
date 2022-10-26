@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ghosts v Skeletons Track - 10_24_22, 2.04 PM-[AudioTrimmer.com].mp3-22c33f0dcce63082f09c2a938a4c212a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Ghosts v Skeletons Track - 10_24_22, 2.04 PM-[AudioTrimmer.com].mp3"
+dest_files=[ "res://.import/Ghosts v Skeletons Track - 10_24_22, 2.04 PM-[AudioTrimmer.com].mp3-22c33f0dcce63082f09c2a938a4c212a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=24.5
