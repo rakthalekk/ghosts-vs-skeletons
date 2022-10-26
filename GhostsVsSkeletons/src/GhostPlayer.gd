@@ -1,5 +1,5 @@
+class_name GhostPlayer
 extends KinematicBody2D
-
 
 export(Vector2) var speed = Vector2(200, 200)
 
@@ -13,11 +13,11 @@ var interacting = false
 func _physics_process(delta):
 	get_direction()
 	get_input()
-	
+
 	velocity = direction * speed
-	
+
 	velocity = move_and_slide(velocity)
-	
+
 	if !ghost_is_kill && !interacting:
 		if direction.y < 0:
 			$AnimationPlayer.play("move_up_right")
@@ -27,7 +27,7 @@ func _physics_process(delta):
 			$AnimationPlayer.play("moving")
 		else:
 			$AnimationPlayer.play("idle")
-		
+
 		if $AnimationPlayer.current_animation == "move_up_right" || $AnimationPlayer.current_animation == "move_down_right":
 			if direction.x > 0:
 				$Sprite.scale.x = -1
@@ -40,7 +40,7 @@ func _physics_process(delta):
 
 
 func get_direction():
-	direction = Vector2(Input.get_action_strength("ghost_move_right") - Input.get_action_strength("ghost_move_left"), 
+	direction = Vector2(Input.get_action_strength("ghost_move_right") - Input.get_action_strength("ghost_move_left"),
 		Input.get_action_strength("ghost_move_down") - Input.get_action_strength("ghost_move_up")).normalized()
 
 
@@ -64,3 +64,14 @@ func _on_KillZone_body_entered(body):
 
 func _on_InteractZone_area_entered(area):
 	area.activate()
+
+
+func get_cross():
+	var skeleton = get_parent().get_node("SkeletonPlayer")
+	skeleton.speed.x = 200
+	$Timer.start(5)
+
+
+func _on_Timer_timeout():
+	var skeleton = get_parent().get_node("SkeletonPlayer")
+	skeleton.speed.x = 400

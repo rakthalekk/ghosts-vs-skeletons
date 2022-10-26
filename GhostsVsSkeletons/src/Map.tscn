@@ -6,6 +6,8 @@
 [ext_resource path="res://src/Stairs.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Statue.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Cross.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/HolyWater.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -94,3 +96,8 @@ collision_layer = 16
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1769461, 0, 0, -1769460, 0, 0, -1769459, 0, 0, -1769433, 0, 0, -1769432, 0, 0, -1769431, 0, 0, -851943, 0, 0, -851942, 0, 0, -851941, 0, 0, -851925, 0, 0, -851924, 0, 0, -851923, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65593, 0, 0, 65594, 0, 0, 65595, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983083, 0, 0, 983084, 0, 0, 983085, 0, 0, 983086, 0, 0 )
+[node name="Cross" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1336, 1428 )
+
+[node name="HolyWater" parent="." instance=ExtResource( 6 )]
+position = Vector2( 961, 1559 )
