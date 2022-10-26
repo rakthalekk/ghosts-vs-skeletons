@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Stairs.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Cross.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/HolyWater.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sounds/Ghosts v Skeletons Track - 10_24_22, 2.04 PM-[AudioTrimmer.com].mp3" type="AudioStream" id=7]
 [ext_resource path="res://src/Statue.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Door.tscn" type="PackedScene" id=8]
 
@@ -90,6 +91,12 @@ position = Vector2( 1336, 1428 )
 
 [node name="HolyWater" parent="." instance=ExtResource( 6 )]
 position = Vector2( 961, 1559 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 7 )
+volume_db = -6.0
+autoplay = true
 
 [node name="Statue" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2298, 1690 )
