@@ -9,13 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Cross",
+"language": "GDScript",
+"path": "res://src/Cross.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "GhostPlayer",
+"language": "GDScript",
+"path": "res://src/GhostPlayer.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "GroundedActor",
 "language": "GDScript",
 "path": "res://src/GroundedActor.gd"
+}, {
+"base": "Area2D",
+"class": "HolyWater",
+"language": "GDScript",
+"path": "res://src/HolyWater.gd"
+}, {
+"base": "GroundedActor",
+"class": "SkeletonPlayer",
+"language": "GDScript",
+"path": "res://src/SkeletonPlayer.gd"
 } ]
 _global_script_class_icons={
-"GroundedActor": ""
+"Cross": "",
+"GhostPlayer": "",
+"GroundedActor": "",
+"HolyWater": "",
+"SkeletonPlayer": ""
 }
 
 [application]
@@ -85,6 +109,7 @@ pause={
 2d_physics/layer_1="environment"
 2d_physics/layer_2="skeleton"
 2d_physics/layer_3="ghost"
+2d_physics/layer_5="item"
 
 [physics]
 

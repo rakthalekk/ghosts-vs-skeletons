@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/GhostPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/SkeletonPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tileset_placeholder.png" type="Texture" id=3]
 [ext_resource path="res://src/Stairs.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Cross.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/HolyWater.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -46,3 +48,8 @@ tile_data = PoolIntArray( -2686976, 0, 0, -2686975, 0, 0, -2686974, 0, 0, -26869
 
 [node name="Stairs" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -1703923, 2, 0, -1703895, 3, 0, -1507317, 0, 0, -1507289, 1, 0, -1310707, 2, 0, -1310679, 3, 0, -1114101, 0, 0, -1114073, 1, 0, -786405, 3, 0, -720853, 0, 0, -589799, 1, 0, -524243, 2, 0, -393189, 3, 0, -327637, 0, 0, -196583, 1, 0, -131027, 2, 0, 131085, 2, 0, 131129, 1, 0, 327691, 0, 0, 327739, 3, 0, 524301, 2, 0, 524345, 1, 0, 720907, 0, 0, 720955, 3, 0, 1114139, 3, 0, 1114155, 0, 0, 1310745, 1, 0, 1310765, 2, 0, 1507355, 3, 0, 1507371, 0, 0, 1703961, 1, 0, 1703981, 2, 0 )
+[node name="Cross" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1336, 1428 )
+
+[node name="HolyWater" parent="." instance=ExtResource( 6 )]
+position = Vector2( 961, 1559 )
