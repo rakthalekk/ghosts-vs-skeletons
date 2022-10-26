@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Standing Skull.png-7480c11a93f8d6e9c218f00f7d7bb540.stex"
+path="res://.import/Nature.png-3f672f028f23bea33d06c266b24985de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Standing Skull.png"
-dest_files=[ "res://.import/Standing Skull.png-7480c11a93f8d6e9c218f00f7d7bb540.stex" ]
+source_file="res://assets/Nature.png"
+dest_files=[ "res://.import/Nature.png-3f672f028f23bea33d06c266b24985de.stex" ]
 
 [params]
 
