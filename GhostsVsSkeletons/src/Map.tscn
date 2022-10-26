@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/GhostPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/SkeletonPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tileset_placeholder.png" type="Texture" id=3]
 [ext_resource path="res://src/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Statue.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Cross.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/HolyWater.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Statue.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Door.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -77,18 +77,6 @@ tile_data = PoolIntArray( -2686976, 0, 0, -2686975, 0, 0, -2686974, 0, 0, -26869
 [node name="Stairs" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -1769459, 2, 0, -1769431, 3, 0, -1703924, 2, 0, -1703896, 3, 0, -1638389, 2, 0, -1638361, 3, 0, -1572854, 4, 0, -1572853, 0, 0, -1572826, 5, 0, -1572825, 1, 0, -1507316, 0, 0, -1507288, 1, 0, -1441780, 2, 0, -1441779, 4, 0, -1441752, 3, 0, -1441751, 5, 0, -1376245, 2, 0, -1376217, 3, 0, -1310710, 4, 0, -1310709, 0, 0, -1310682, 5, 0, -1310681, 1, 0, -1245172, 0, 0, -1245144, 1, 0, -1179636, 2, 0, -1179635, 4, 0, -1179608, 3, 0, -1179607, 5, 0, -1114101, 2, 0, -1114073, 3, 0, -1048566, 4, 0, -1048565, 0, 0, -1048538, 5, 0, -1048537, 1, 0, -983028, 0, 0, -983000, 1, 0, -917491, 0, 0, -917463, 1, 0, -851941, 3, 0, -851925, 0, 0, -786406, 3, 0, -786388, 0, 0, -720871, 3, 0, -720851, 0, 0, -655336, 5, 0, -655335, 1, 0, -655315, 2, 0, -655314, 4, 0, -589798, 1, 0, -589780, 2, 0, -524262, 3, 0, -524261, 5, 0, -524245, 4, 0, -524244, 0, 0, -458727, 3, 0, -458707, 0, 0, -393192, 5, 0, -393191, 1, 0, -393171, 2, 0, -393170, 4, 0, -327654, 1, 0, -327636, 2, 0, -262118, 3, 0, -262117, 5, 0, -262101, 4, 0, -262100, 0, 0, -196583, 3, 0, -196563, 0, 0, -131048, 3, 0, -131047, 1, 0, -131027, 2, 0, -131026, 4, 0, -65510, 1, 0, -65492, 2, 0, 27, 1, 0, 43, 2, 0, 65549, 2, 0, 65593, 1, 0, 131084, 2, 0, 131130, 1, 0, 196619, 2, 0, 196667, 1, 0, 262154, 4, 0, 262155, 0, 0, 262203, 3, 0, 262204, 5, 0, 327692, 0, 0, 327738, 3, 0, 393228, 2, 0, 393229, 4, 0, 393273, 5, 0, 393274, 1, 0, 458763, 2, 0, 458811, 1, 0, 524298, 4, 0, 524299, 0, 0, 524347, 3, 0, 524348, 5, 0, 589836, 0, 0, 589882, 3, 0, 655372, 2, 0, 655373, 4, 0, 655417, 5, 0, 655418, 1, 0, 720907, 2, 0, 720955, 1, 0, 786442, 4, 0, 786443, 0, 0, 786491, 3, 0, 786492, 5, 0, 851980, 0, 0, 852001, 2, 0, 852005, 0, 0, 852026, 3, 0, 917517, 0, 0, 917534, 2, 0, 917544, 0, 0, 917561, 3, 0, 983067, 3, 0, 983083, 0, 0, 1048602, 3, 0, 1048620, 0, 0, 1114137, 3, 0, 1114157, 0, 0, 1179672, 5, 0, 1179673, 1, 0, 1179693, 2, 0, 1179694, 4, 0, 1245210, 1, 0, 1245228, 2, 0, 1310746, 3, 0, 1310747, 5, 0, 1310763, 4, 0, 1310764, 0, 0, 1376281, 3, 0, 1376301, 0, 0, 1441816, 5, 0, 1441817, 1, 0, 1441837, 2, 0, 1441838, 4, 0, 1507354, 1, 0, 1507372, 2, 0, 1572890, 3, 0, 1572891, 5, 0, 1572907, 4, 0, 1572908, 0, 0, 1638425, 3, 0, 1638445, 0, 0, 1703961, 1, 0, 1703981, 2, 0, 1703982, 4, 0, 1769498, 1, 0, 1769516, 2, 0, 1835035, 1, 0, 1835051, 2, 0 )
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2272, 800 )
-
-[node name="Statue" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2277, 1693 )
-
-[node name="Statue2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 4165, -97 )
-
-[node name="Statue3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1386, -1893 )
-
 [node name="Platforms" type="TileMap" parent="."]
 modulate = Color( 1, 1, 1, 0.458824 )
 tile_set = SubResource( 4 )
@@ -96,8 +84,21 @@ collision_layer = 16
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1769461, 0, 0, -1769460, 0, 0, -1769459, 0, 0, -1769433, 0, 0, -1769432, 0, 0, -1769431, 0, 0, -851943, 0, 0, -851942, 0, 0, -851941, 0, 0, -851925, 0, 0, -851924, 0, 0, -851923, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65593, 0, 0, 65594, 0, 0, 65595, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983083, 0, 0, 983084, 0, 0, 983085, 0, 0, 983086, 0, 0 )
+
 [node name="Cross" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1336, 1428 )
 
 [node name="HolyWater" parent="." instance=ExtResource( 6 )]
 position = Vector2( 961, 1559 )
+
+[node name="Statue" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2298, 1690 )
+
+[node name="Statue2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4168, -99 )
+
+[node name="Statue3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1380, -1889 )
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2271, 795 )

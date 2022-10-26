@@ -210,10 +210,9 @@ position = Vector2( -2.5, 3.5 )
 shape = SubResource( 8 )
 disabled = true
 
-[connection signal="body_entered" from="KillZone" to="." method="_on_KillZone_body_entered"]
-[connection signal="area_entered" from="InteractZone" to="." method="_on_InteractZone_area_entered"]
-
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="KillZone" to="." method="_on_KillZone_body_entered"]
+[connection signal="area_entered" from="InteractZone" to="." method="_on_InteractZone_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
