@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Standing Skull.png-7480c11a93f8d6e9c218f00f7d7bb540.stex"
+path="res://.import/GRFI.png-a0fcfbe1547e7acc580d6b1eb7275eb4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Standing Skull.png"
-dest_files=[ "res://.import/Standing Skull.png-7480c11a93f8d6e9c218f00f7d7bb540.stex" ]
+source_file="res://assets/GRFI.png"
+dest_files=[ "res://.import/GRFI.png-a0fcfbe1547e7acc580d6b1eb7275eb4.stex" ]
 
 [params]
 

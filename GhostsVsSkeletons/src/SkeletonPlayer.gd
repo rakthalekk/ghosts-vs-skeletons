@@ -1,6 +1,8 @@
 class_name SkeletonPlayer
 extends GroundedActor
 
+var skeleton_is_kill = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -8,16 +10,38 @@ func _ready():
 
 func _physics_process(delta):
 	get_direction()
-	
+	get_input()
+
 	var is_jump_interrupted = Input.is_action_just_released("skeleton_jump") and velocity.y < 0.0
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
-	
-	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
+
+	snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
 	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 0.9, false)
+
+	if !skeleton_is_kill:
+		if direction.length() != 0:
+			$AnimationPlayer.play("moving")
+		else:
+			$AnimationPlayer.play("idle")
+
+		if direction.x > 0:
+			$Sprite.scale.x = 1
+		elif direction.x < 0:
+			$Sprite.scale.x = -1
+
+
+func get_input():
+	if Input.is_action_just_pressed("skeleton_fall_through"):
+		set_collision_mask_bit(4, false)
+	if Input.is_action_just_released("skeleton_fall_through"):
+		set_collision_mask_bit(4, true)
+	if Input.is_action_just_pressed("skeleton_kill"):
+		$AnimationPlayer.play("kill")
+		skeleton_is_kill = true
 
 
 func get_direction():
-	direction = Vector2(Input.get_action_strength("skeleton_move_right") - Input.get_action_strength("skeleton_move_left"), 
+	direction = Vector2(Input.get_action_strength("skeleton_move_right") - Input.get_action_strength("skeleton_move_left"),
 		-1 if (is_on_floor()) and Input.is_action_just_pressed("skeleton_jump") else 0)
 
 
@@ -36,10 +60,20 @@ func calculate_move_velocity(
 		v.y *= 0.5
 	return v
 
+
+func when_skeleton_is_no_longer_kill():
+	skeleton_is_kill = false
+
+
+func _on_KillZone_body_entered(body):
+	body.skeletonify()
+
+
 func get_holy_water():
 	var ghost = get_parent().get_node("GhostPlayer")
 	ghost.speed = Vector2(100, 100)
 	$Timer.start(5)
+
 
 func _on_Timer_timeout():
 	var ghost = get_parent().get_node("GhostPlayer")
