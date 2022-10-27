@@ -1,7 +1,7 @@
 class_name GhostPlayer
 extends KinematicBody2D
 
-export(Vector2) var speed = Vector2(200, 200)
+export(Vector2) var speed = Vector2(220, 220)
 
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
@@ -19,23 +19,22 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 	if !ghost_is_kill && !interacting:
-		if direction.y < 0:
-			$AnimationPlayer.play("move_up_right")
+		if direction.y < 0 && direction.x == 0:
+			$AnimationPlayer.play("move_up")
+		elif direction.y > 0 && direction.x == 0:
+			$AnimationPlayer.play("move_down")
+		elif direction.y < 0:
+			$AnimationPlayer.play("move_up_left")
 		elif direction.y > 0:
-			$AnimationPlayer.play("move_down_right")
+			$AnimationPlayer.play("move_down_left")
 		elif direction.x != 0:
-			$AnimationPlayer.play("moving")
+			$AnimationPlayer.play("move_left")
 		else:
 			$AnimationPlayer.play("idle")
-
-		if $AnimationPlayer.current_animation == "move_up_right" || $AnimationPlayer.current_animation == "move_down_right":
-			if direction.x > 0:
-				$Sprite.scale.x = -1
-			elif direction.x < 0:
-				$Sprite.scale.x = 1
-		elif direction.x > 0:
+		
+		if direction.x < 0:
 			$Sprite.scale.x = 1
-		elif direction.x < 0:
+		elif direction.x > 0:
 			$Sprite.scale.x = -1
 
 

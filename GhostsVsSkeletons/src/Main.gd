@@ -3,7 +3,6 @@
 
 extends Node2D
 
-
 onready var players := {
 	"1": {
 		viewport = $HBoxContainer/ViewportContainer/Viewport,

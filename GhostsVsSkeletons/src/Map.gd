@@ -1,0 +1,4 @@
+extends Node2D
+
+signal update_minimap_stairs
+signal create_human_icon

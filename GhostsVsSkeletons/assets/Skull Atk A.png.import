@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GRUI.png-d95940ee937ae10f66de716cfbbd531c.stex"
+path="res://.import/Skull Atk A.png-7706731b0cbc68600de65b59793d15d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GRUI.png"
-dest_files=[ "res://.import/GRUI.png-d95940ee937ae10f66de716cfbbd531c.stex" ]
+source_file="res://assets/Skull Atk A.png"
+dest_files=[ "res://.import/Skull Atk A.png-7706731b0cbc68600de65b59793d15d1.stex" ]
 
 [params]
 

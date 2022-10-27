@@ -10,8 +10,11 @@ func _ready():
 
 func _physics_process(delta):
 	get_direction()
-	get_input()
-
+	if !skeleton_is_kill:
+		get_input()
+	else:
+		direction = Vector2(0, 0)
+	
 	var is_jump_interrupted = Input.is_action_just_released("skeleton_jump") and velocity.y < 0.0
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 
@@ -19,7 +22,9 @@ func _physics_process(delta):
 	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 0.9, false)
 
 	if !skeleton_is_kill:
-		if direction.length() != 0:
+		if !is_on_floor() && direction.x != 0:
+			$AnimationPlayer.play("jumping")
+		elif direction.x != 0:
 			$AnimationPlayer.play("moving")
 		else:
 			$AnimationPlayer.play("idle")
@@ -67,6 +72,7 @@ func when_skeleton_is_no_longer_kill():
 
 func _on_KillZone_body_entered(body):
 	body.skeletonify()
+	set_collision_mask_bit(4, true)
 
 
 func get_holy_water():

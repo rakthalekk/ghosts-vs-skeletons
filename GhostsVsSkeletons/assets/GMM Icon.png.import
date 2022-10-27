@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GRUI.png-d95940ee937ae10f66de716cfbbd531c.stex"
+path="res://.import/GMM Icon.png-f2a877de9cfef1df2c03837da5b17136.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GRUI.png"
-dest_files=[ "res://.import/GRUI.png-d95940ee937ae10f66de716cfbbd531c.stex" ]
+source_file="res://assets/GMM Icon.png"
+dest_files=[ "res://.import/GMM Icon.png-f2a877de9cfef1df2c03837da5b17136.stex" ]
 
 [params]
 
