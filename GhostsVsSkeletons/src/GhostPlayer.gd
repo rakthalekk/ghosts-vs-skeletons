@@ -12,8 +12,11 @@ var interacting = false
 
 func _physics_process(delta):
 	get_direction()
-	get_input()
-
+	if !ghost_is_kill:
+		get_input()
+	else:
+		direction = Vector2(0, 0)
+	
 	velocity = direction * speed
 
 	velocity = move_and_slide(velocity)

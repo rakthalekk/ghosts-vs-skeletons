@@ -1,11 +1,11 @@
 extends GroundedActor
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var converted = false
+
 func _ready():
 	direction.x = 1 if randf() > 0.5 else -1
+	Global.total_humans += 1
 
 
 func _physics_process(delta):
@@ -19,11 +19,17 @@ func _physics_process(delta):
 
 
 func skeletonify():
-	$AnimationPlayer.play("skeleton")
+	if !converted:
+		converted = true
+		$AnimationPlayer.play("skeleton")
+		Global.skeleton_count += 1
 
 
 func ghostify():
-	$AnimationPlayer.play("ghost")
+	if !converted:
+		converted = true
+		$AnimationPlayer.play("ghost")
+		Global.ghost_count += 1
 
 
 func _on_Timer_timeout():
