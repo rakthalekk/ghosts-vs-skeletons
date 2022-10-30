@@ -5,8 +5,9 @@ export(Vector2) var powerup_spawn_rate = Vector2(1, 2)
 
 const SLOW = preload("res://src/SlowPowerup.tscn")
 const RANGED = preload("res://src/RangedPowerup.tscn")
+const MASK = preload("res://src/DevilMask.tscn")
 
-var powerups = [SLOW, RANGED]
+var powerups = [SLOW, RANGED, MASK]
 
 var rng = RandomNumberGenerator.new()
 
@@ -46,6 +47,8 @@ func _on_PowerupTimer_timeout():
 		powerup = SLOW.instance()
 	elif location.get_name() == "HolyWaterPosition":
 		powerup = SLOW.instance()
+	elif location.get_name() == "MaskPosition":
+		powerup = MASK.instance()
 	elif location.get_name() == "ProjectilePosition":
 		powerup = RANGED.instance()
 	else:

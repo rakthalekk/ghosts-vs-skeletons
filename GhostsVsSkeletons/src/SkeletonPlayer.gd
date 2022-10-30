@@ -2,6 +2,7 @@ class_name SkeletonPlayer
 extends GroundedActor
 
 const BONEPROJECTILE = preload("res://src/BoneProjectile.tscn")
+const AOECONVERT = preload("res://src/AOEConvert.tscn")
 
 var skeleton_is_kill = false
 
@@ -43,9 +44,12 @@ func get_input():
 		skeleton_is_kill = true
 		if $RangedUpgradeDuration.time_left > 0:
 			var bone = BONEPROJECTILE.instance()
-			bone.global_position = global_position
 			bone.direction.x = $Sprite.scale.x
-			get_parent().add_child(bone)
+			add_child(bone)
+		if $AOEDuration.time_left > 0:
+			var aoe = AOECONVERT.instance()
+			aoe.user = "Skeleton"
+			add_child(aoe)
 
 
 func get_direction():
@@ -71,10 +75,6 @@ func calculate_move_velocity(
 	return v
 
 
-func inflict_speed_penalty():
-	$SpeedPenalty.start($SpeedPenalty.time_left + Global.SPEED_PENALTY_DURATION) # Adds 15 seconds of slowing 
-
-
 func when_skeleton_is_no_longer_kill():
 	skeleton_is_kill = false
 
@@ -89,9 +89,13 @@ func slow_other_player():
 	ghost.inflict_speed_penalty()
 
 
+func inflict_speed_penalty():
+	$SpeedPenalty.start($SpeedPenalty.time_left + Global.SPEED_PENALTY_DURATION) # Adds 15 seconds of slowing 
+
+
 func get_ranged_upgrade():
 	$RangedUpgradeDuration.start($RangedUpgradeDuration.time_left + Global.RANGED_UPGRADE_DURATION)
 
 
-func get_aoe_upgrade():
-	pass
+func get_mask():
+	$AOEDuration.start($AOEDuration.time_left + Global.AOE_DURATION)

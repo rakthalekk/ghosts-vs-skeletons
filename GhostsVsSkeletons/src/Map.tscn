@@ -150,7 +150,7 @@ position = Vector2( 510, 4290 )
 [node name="SodaPosition" type="Position2D" parent="PowerUpManager/Locations"]
 position = Vector2( 3173, 3352 )
 
-[node name="AOEPosition" type="Position2D" parent="PowerUpManager/Locations"]
+[node name="MaskPosition" type="Position2D" parent="PowerUpManager/Locations"]
 position = Vector2( 2272, 2600 )
 
 [node name="RandPosition2" type="Position2D" parent="PowerUpManager/Locations"]

@@ -2,6 +2,7 @@ class_name GhostPlayer
 extends KinematicBody2D
 
 const ORBPROJECTILE = preload("res://src/OrbProjectile.tscn")
+const AOECONVERT = preload("res://src/AOEConvert.tscn")
 
 export(Vector2) var speed = Vector2(300, 300)
 
@@ -60,15 +61,14 @@ func get_input():
 			bone.global_position = global_position
 			bone.direction.x = -$Sprite.scale.x
 			get_parent().add_child(bone)
+		if $AOEDuration.time_left > 0:
+			var aoe = AOECONVERT.instance()
+			aoe.user = "Ghost"
+			add_child(aoe)
 	
 	if Input.is_action_just_pressed("ghost_interact"):
 		$AnimationPlayer.play("interact")
 		interacting = true
-		
-
-
-func inflict_speed_penalty():
-	$SpeedPenalty.start($SpeedPenalty.time_left + Global.SPEED_PENALTY_DURATION) # Adds 15 seconds of slowing 
 
 
 func when_ghost_is_no_longer_kill():
@@ -89,9 +89,13 @@ func slow_other_player():
 	skeleton.inflict_speed_penalty()
 
 
+func inflict_speed_penalty():
+	$SpeedPenalty.start($SpeedPenalty.time_left + Global.SPEED_PENALTY_DURATION) # Adds 15 seconds of slowing 
+
+
 func get_ranged_upgrade():
 	$RangedUpgradeDuration.start($RangedUpgradeDuration.time_left + Global.RANGED_UPGRADE_DURATION)
 
 
-func get_aoe_upgrade():
-	pass
+func get_mask():
+	$AOEDuration.start($AOEDuration.time_left + Global.AOE_DURATION)
