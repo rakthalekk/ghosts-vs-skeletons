@@ -3,10 +3,10 @@ extends Node2D
 export(Vector2) var level_size = Vector2(4554, 4554)
 export(Vector2) var powerup_spawn_rate = Vector2(1, 2)
 
-const CROSS = preload("res://src/Cross.tscn")
-const HOLYWATER = preload("res://src/HolyWater.tscn")
+const SLOW = preload("res://src/SlowPowerup.tscn")
+const RANGED = preload("res://src/RangedPowerup.tscn")
 
-var powerups = [CROSS, HOLYWATER]
+var powerups = [SLOW, RANGED]
 
 var rng = RandomNumberGenerator.new()
 
@@ -43,9 +43,11 @@ func _on_PowerupTimer_timeout():
 	
 	var powerup
 	if location.get_name() == "CrossPosition":
-		powerup = CROSS.instance()
+		powerup = SLOW.instance()
 	elif location.get_name() == "HolyWaterPosition":
-		powerup = HOLYWATER.instance()
+		powerup = SLOW.instance()
+	elif location.get_name() == "ProjectilePosition":
+		powerup = RANGED.instance()
 	else:
 		powerup = powerups[rng.randi_range(0, powerups.size() - 1)].instance()
 	

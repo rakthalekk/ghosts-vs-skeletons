@@ -162,7 +162,7 @@ position = Vector2( 1308, 1530 )
 [node name="RandPosition3" type="Position2D" parent="PowerUpManager/Locations"]
 position = Vector2( 4086, 1725 )
 
-[node name="HolyWaterPosition" type="Position2D" parent="PowerUpManager/Locations"]
+[node name="HolyWaterPosition2" type="Position2D" parent="PowerUpManager/Locations"]
 position = Vector2( 4063, 826 )
 
 [node name="PowerupTimer" type="Timer" parent="PowerUpManager"]

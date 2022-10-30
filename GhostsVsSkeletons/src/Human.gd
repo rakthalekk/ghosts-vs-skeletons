@@ -1,3 +1,4 @@
+class_name Human
 extends GroundedActor
 
 
@@ -23,6 +24,7 @@ func skeletonify():
 		converted = true
 		$AnimationPlayer.play("skeleton")
 		Global.skeleton_count += 1
+		set_collision_layer_bit(3, false)
 
 
 func ghostify():
@@ -30,6 +32,7 @@ func ghostify():
 		converted = true
 		$AnimationPlayer.play("ghost")
 		Global.ghost_count += 1
+		set_collision_layer_bit(3, false)
 
 
 func _on_Timer_timeout():

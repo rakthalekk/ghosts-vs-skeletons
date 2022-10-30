@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HolyWater.png-fb31c1956ab8d26f34e571be7bc457a3.stex"
+path="res://.import/Cross.png-980caf59cc81cf3dcf2bfb7829d332d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HolyWater.png"
-dest_files=[ "res://.import/HolyWater.png-fb31c1956ab8d26f34e571be7bc457a3.stex" ]
+source_file="res://assets/Cross.png"
+dest_files=[ "res://.import/Cross.png-980caf59cc81cf3dcf2bfb7829d332d5.stex" ]
 
 [params]
 

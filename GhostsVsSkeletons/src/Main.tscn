@@ -197,6 +197,9 @@ position = Vector2( 92, 230 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 
+[node name="AlternateIcons" type="Timer" parent="Minimap"]
+autostart = true
+
 [node name="HumanCount" type="Label" parent="."]
 margin_left = 1260.0
 margin_top = 19.0
@@ -233,3 +236,4 @@ rect_scale = Vector2( 2, 2 )
 [connection signal="create_powerup_icon" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_create_powerup_icon"]
 [connection signal="remove_powerup_icon" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_remove_powerup_icon"]
 [connection signal="update_minimap_stairs" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_update_minimap_stairs"]
+[connection signal="timeout" from="Minimap/AlternateIcons" to="Minimap" method="_on_AlternateIcons_timeout"]

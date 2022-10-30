@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "PowerUp",
-"class": "Cross",
+"class": "DevilMask",
 "language": "GDScript",
-"path": "res://src/Cross.gd"
+"path": "res://src/DevilMask.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "GhostPlayer",
@@ -24,34 +24,46 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/GroundedActor.gd"
 }, {
-"base": "PowerUp",
-"class": "HolyWater",
+"base": "GroundedActor",
+"class": "Human",
 "language": "GDScript",
-"path": "res://src/HolyWater.gd"
+"path": "res://src/Human.gd"
 }, {
 "base": "Area2D",
 "class": "PowerUp",
 "language": "GDScript",
 "path": "res://src/PowerUp.gd"
 }, {
+"base": "PowerUp",
+"class": "RangedPowerup",
+"language": "GDScript",
+"path": "res://src/RangedPowerup.gd"
+}, {
 "base": "GroundedActor",
 "class": "SkeletonPlayer",
 "language": "GDScript",
 "path": "res://src/SkeletonPlayer.gd"
+}, {
+"base": "PowerUp",
+"class": "SlowPowerup",
+"language": "GDScript",
+"path": "res://src/SlowPowerup.gd"
 } ]
 _global_script_class_icons={
-"Cross": "",
+"DevilMask": "",
 "GhostPlayer": "",
 "GroundedActor": "",
-"HolyWater": "",
+"Human": "",
 "PowerUp": "",
-"SkeletonPlayer": ""
+"RangedPowerup": "",
+"SkeletonPlayer": "",
+"SlowPowerup": ""
 }
 
 [application]
 
 config/name="Ghosts Vs Skeletons"
-run/main_scene="res://src/Menu.tscn"
+run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]

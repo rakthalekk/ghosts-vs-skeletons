@@ -1,5 +1,12 @@
 extends ColorRect
 
+const BONESPRITE = preload("res://assets/Bone.png")
+const ORBSPRITE = preload("res://assets/Orb.png")
+var projectile_sprite = BONESPRITE
+
+const WATERSPRITE = preload("res://assets/Holy Water.png")
+const CROSSSPRITE = preload("res://assets/Cross.png")
+var slow_sprite = WATERSPRITE
 
 onready var map = $"../HBoxContainer/ViewportContainer/Viewport/Map"
 onready var skeleton = map.get_node("SkeletonPlayer")
@@ -48,16 +55,9 @@ func _on_Map_create_human_icon():
 
 func _on_Map_create_powerup_icon(powerup):
 	var powerup_icon = Sprite.new()
-	if powerup is Cross:
-		powerup_icon.texture = load("res://assets/Cross-Icon.png")
-	elif powerup is HolyWater:
-		powerup_icon.texture = load("res://assets/HolyWater.png")
-		powerup_icon.scale = Vector2(0.5, 0.5)
-	else:
-		powerup_icon.scale = Vector2(0.3, 0.3)
-		powerup_icon.texture = powerup.get_node("Sprite").texture
+	powerup_icon.texture = powerup.get_node("Sprite").texture
 	
-	powerup_icon.position = powerup.global_position / 14.2
+	powerup_icon.position = powerup.global_position / 14.2 - Vector2(0, 10)
 	$PowerupIcons.add_child(powerup_icon)
 	powerup_icons.append(powerup_icon)
 
@@ -65,7 +65,25 @@ func _on_Map_create_powerup_icon(powerup):
 func _on_Map_remove_powerup_icon(powerup):
 	# Removes the icon at the position of the removed powerup
 	for icon in powerup_icons:
-		if icon.position.distance_to(powerup.global_position / 14.2) < 5:
+		if icon.position.distance_to(powerup.global_position / 14.2 - Vector2(0, 10)) < 5:
 			powerup_icons.erase(icon)
 			icon.queue_free()
 			break
+
+
+func _on_AlternateIcons_timeout():
+	if projectile_sprite == BONESPRITE:
+		projectile_sprite = ORBSPRITE
+	else:
+		projectile_sprite = BONESPRITE
+	
+	if slow_sprite == WATERSPRITE:
+		slow_sprite = CROSSSPRITE
+	else:
+		slow_sprite = WATERSPRITE
+	
+	for icon in powerup_icons:
+		if icon.texture == BONESPRITE || icon.texture == ORBSPRITE:
+			icon.texture = projectile_sprite
+		elif icon.texture == WATERSPRITE || icon.texture == CROSSSPRITE:
+			icon.texture = slow_sprite
