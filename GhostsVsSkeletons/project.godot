@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
+"base": "PowerUp",
 "class": "Cross",
 "language": "GDScript",
 "path": "res://src/Cross.gd"
@@ -24,10 +24,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/GroundedActor.gd"
 }, {
-"base": "Area2D",
+"base": "PowerUp",
 "class": "HolyWater",
 "language": "GDScript",
 "path": "res://src/HolyWater.gd"
+}, {
+"base": "Area2D",
+"class": "PowerUp",
+"language": "GDScript",
+"path": "res://src/PowerUp.gd"
 }, {
 "base": "GroundedActor",
 "class": "SkeletonPlayer",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "GhostPlayer": "",
 "GroundedActor": "",
 "HolyWater": "",
+"PowerUp": "",
 "SkeletonPlayer": ""
 }
 

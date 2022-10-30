@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	var is_jump_interrupted = Input.is_action_just_released("skeleton_jump") and velocity.y < 0.0
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
-
+	
 	snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
 	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 0.9, false)
 
@@ -63,7 +63,13 @@ func calculate_move_velocity(
 		v.y = speed.y * direction.y
 	if is_jump_interrupted:
 		v.y *= 0.5
+	if $SpeedPenalty.time_left > 0:
+		v.x *= 0.5
 	return v
+
+
+func inflict_speed_penalty():
+	$SpeedPenalty.start($SpeedPenalty.time_left + 15) # Adds 15 seconds of slowing 
 
 
 func when_skeleton_is_no_longer_kill():
@@ -77,10 +83,5 @@ func _on_KillZone_body_entered(body):
 
 func get_holy_water():
 	var ghost = get_parent().get_node("GhostPlayer")
-	ghost.speed = Vector2(100, 100)
-	$Timer.start(5)
+	ghost.inflict_speed_penalty()
 
-
-func _on_Timer_timeout():
-	var ghost = get_parent().get_node("GhostPlayer")
-	ghost.speed = Vector2(200, 200)

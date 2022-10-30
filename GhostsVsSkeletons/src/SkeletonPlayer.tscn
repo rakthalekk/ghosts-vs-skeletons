@@ -342,7 +342,7 @@ position = Vector2( 4, -2 )
 shape = SubResource( 6 )
 disabled = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpeedPenalty" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_KillZone_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

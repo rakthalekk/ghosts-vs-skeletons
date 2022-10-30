@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var stairs = get_parent().get_node("Stairs")
+onready var stairs = get_parent().get_parent().get_node("Stairs")
 
 func activate():
 	stairs.trigger_stairs()

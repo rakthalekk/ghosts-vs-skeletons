@@ -1,7 +1,7 @@
 class_name GhostPlayer
 extends KinematicBody2D
 
-export(Vector2) var speed = Vector2(220, 220)
+export(Vector2) var speed = Vector2(300, 300)
 
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
@@ -18,6 +18,9 @@ func _physics_process(delta):
 		direction = Vector2(0, 0)
 	
 	velocity = direction * speed
+	
+	if $SpeedPenalty.time_left > 0:
+		velocity *= 0.5
 
 	velocity = move_and_slide(velocity)
 
@@ -55,6 +58,10 @@ func get_input():
 		interacting = true
 
 
+func inflict_speed_penalty():
+	$SpeedPenalty.start($SpeedPenalty.time_left + 15) # Adds 15 seconds of slowing 
+
+
 func when_ghost_is_no_longer_kill():
 	ghost_is_kill = false
 	interacting = false
@@ -70,10 +77,5 @@ func _on_InteractZone_area_entered(area):
 
 func get_cross():
 	var skeleton = get_parent().get_node("SkeletonPlayer")
-	skeleton.speed.x = 200
-	$Timer.start(5)
+	skeleton.inflict_speed_penalty()
 
-
-func _on_Timer_timeout():
-	var skeleton = get_parent().get_node("SkeletonPlayer")
-	skeleton.speed.x = 400

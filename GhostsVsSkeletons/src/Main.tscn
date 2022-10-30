@@ -181,6 +181,12 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 786450, 2, 0, 786456, 1, 0, 786478, 2, 0, 786484, 1, 0, 851984, 2, 0, 851994, 1, 0, 852013, 2, 0, 852021, 1, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917542, 0, 0, 917543, 0, 0, 917544, 0, 0, 917545, 0, 0, 1638418, 2, 0, 1638422, 1, 0, 1703953, 2, 0, 1703959, 1, 0, 1769488, 2, 0, 1769496, 1, 0, 1835032, 0, 0, 1835033, 0, 0, 1835034, 0, 0, 1835035, 0, 0, 1835051, 0, 0, 1835052, 0, 0, 1835053, 0, 0, 1835054, 0, 0, 2621457, 2, 0, 2621465, 1, 0, 2621489, 2, 0, 2621493, 1, 0, 2621502, 2, 0, 2621507, 1, 0, 2686992, 2, 0, 2687002, 1, 0, 2687024, 2, 0, 2687030, 1, 0, 2687037, 2, 0, 2687044, 1, 0, 2752522, 0, 0, 2752523, 0, 0, 2752524, 0, 0, 2752525, 0, 0, 2752569, 0, 0, 2752570, 0, 0, 2752571, 0, 0, 2752572, 0, 0, 3538960, 2, 0, 3538966, 1, 0, 3538977, 2, 0, 3538981, 1, 0, 3538992, 2, 0, 3538998, 1, 0, 3604495, 2, 0, 3604503, 1, 0, 3604510, 2, 0, 3604520, 1, 0, 3604527, 2, 0, 3604535, 1, 0, 3670040, 0, 0, 3670041, 0, 0, 3670042, 0, 0, 3670043, 0, 0, 3670059, 0, 0, 3670060, 0, 0, 3670061, 0, 0, 3670062, 0, 0, 4390977, 2, 0, 4456453, 2, 0, 4456458, 1, 0, 4456480, 2, 0, 4456486, 1, 0, 4456511, 2, 0, 4521988, 2, 0, 4521995, 1, 0, 4522015, 2, 0, 4522023, 1, 0, 4522046, 2, 0 )
 
+[node name="StatueIcons" type="Node2D" parent="Minimap"]
+
+[node name="HumanIcons" type="Node2D" parent="Minimap"]
+
+[node name="PowerupIcons" type="Node2D" parent="Minimap"]
+
 [node name="SkeletonIcon" type="Sprite" parent="Minimap"]
 position = Vector2( 230, 234 )
 scale = Vector2( 2, 2 )
@@ -190,8 +196,6 @@ texture = ExtResource( 4 )
 position = Vector2( 92, 230 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
-
-[node name="HumanIcons" type="Node2D" parent="Minimap"]
 
 [node name="HumanCount" type="Label" parent="."]
 margin_left = 1260.0
@@ -226,4 +230,6 @@ margin_bottom = 172.0
 rect_scale = Vector2( 2, 2 )
 
 [connection signal="create_human_icon" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_create_human_icon"]
+[connection signal="create_powerup_icon" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_create_powerup_icon"]
+[connection signal="remove_powerup_icon" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_remove_powerup_icon"]
 [connection signal="update_minimap_stairs" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_update_minimap_stairs"]

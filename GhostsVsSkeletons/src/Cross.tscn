@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Cross.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,7 +6,39 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.0
 
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "light_aura"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 2.0, 1.0 ]
+}
+
 [node name="Cross" type="Area2D"]
+modulate = Color( 1, 0.929412, 0.929412, 1 )
 collision_layer = 0
 collision_mask = 4
 script = ExtResource( 1 )
@@ -17,4 +49,18 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "light_aura"
+anims/RESET = SubResource( 2 )
+anims/light_aura = SubResource( 3 )
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_Cross_body_entered"]
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_DisappearTimer_timeout"]
