@@ -48,10 +48,16 @@ func _on_Map_create_human_icon():
 
 func _on_Map_create_powerup_icon(powerup):
 	var powerup_icon = Sprite.new()
-	powerup_icon.scale = Vector2(0.3, 0.3)
-	powerup_icon.texture = powerup.get_node("Sprite").texture
+	if powerup is Cross:
+		powerup_icon.texture = load("res://assets/Cross-Icon.png")
+	elif powerup is HolyWater:
+		powerup_icon.texture = load("res://assets/HolyWater.png")
+		powerup_icon.scale = Vector2(0.5, 0.5)
+	else:
+		powerup_icon.scale = Vector2(0.3, 0.3)
+		powerup_icon.texture = powerup.get_node("Sprite").texture
+	
 	powerup_icon.position = powerup.global_position / 14.2
-	powerup_icon.modulate = powerup.modulate
 	$PowerupIcons.add_child(powerup_icon)
 	powerup_icons.append(powerup_icon)
 

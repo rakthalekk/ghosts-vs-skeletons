@@ -1,7 +1,7 @@
 extends Node2D
 
 export(Vector2) var level_size = Vector2(4554, 4554)
-export(Vector2) var powerup_spawn_rate = Vector2(10, 20)
+export(Vector2) var powerup_spawn_rate = Vector2(1, 2)
 
 const CROSS = preload("res://src/Cross.tscn")
 const HOLYWATER = preload("res://src/HolyWater.tscn")
