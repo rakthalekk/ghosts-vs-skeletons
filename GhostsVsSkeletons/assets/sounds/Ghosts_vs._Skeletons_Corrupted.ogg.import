@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ghosts_vs._Skeletons_Corrupted.ogg-180856f6cd568196ee71fc4af40973a0.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ghosts_vs._Skeletons_Corrupted.ogg"
+dest_files=[ "res://.import/Ghosts_vs._Skeletons_Corrupted.ogg-180856f6cd568196ee71fc4af40973a0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

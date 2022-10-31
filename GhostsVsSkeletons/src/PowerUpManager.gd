@@ -1,13 +1,15 @@
 extends Node2D
 
 export(Vector2) var level_size = Vector2(4554, 4554)
-export(Vector2) var powerup_spawn_rate = Vector2(1, 2)
+export(Vector2) var powerup_spawn_rate = Vector2(5, 10)
 
 const SLOW = preload("res://src/SlowPowerup.tscn")
 const RANGED = preload("res://src/RangedPowerup.tscn")
 const MASK = preload("res://src/DevilMask.tscn")
+const SODA = preload("res://src/FreeSodaFromGoldenDragon.tscn")
+const CV = preload("res://src/CVPowerup.tscn")
 
-var powerups = [SLOW, RANGED, MASK]
+var powerups = [SLOW, RANGED, MASK, SODA, CV]
 
 var rng = RandomNumberGenerator.new()
 
@@ -51,6 +53,8 @@ func _on_PowerupTimer_timeout():
 		powerup = MASK.instance()
 	elif location.get_name() == "ProjectilePosition":
 		powerup = RANGED.instance()
+	elif location.get_name() == "SodaPosition":
+		powerup = SODA.instance()
 	else:
 		powerup = powerups[rng.randi_range(0, powerups.size() - 1)].instance()
 	

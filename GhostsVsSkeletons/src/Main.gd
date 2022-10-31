@@ -29,3 +29,15 @@ func _process(delta):
 	$HumanCount.text = "Human Count: " + str(Global.total_humans)
 	$GhostCount.text = "Ghost Count: " + str(Global.ghost_count)
 	$SkeletonCount.text = "Skeleton Count: " + str(Global.skeleton_count)
+
+
+func _on_Map_fade_out_ghost():
+	$AnimationPlayer.play("fade_out_ghost")
+
+
+func play_corrupted_music():
+	$CorruptedMusic.play()
+
+
+func _on_Map_turn_off_corrupted_music():
+	$CorruptedMusic.stop()
