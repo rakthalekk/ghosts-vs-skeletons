@@ -4,7 +4,7 @@ extends KinematicBody2D
 const ORBPROJECTILE = preload("res://src/OrbProjectile.tscn")
 const AOECONVERT = preload("res://src/AOEConvert.tscn")
 
-export(Vector2) var speed = Vector2(300, 300)
+export(Vector2) var speed = Vector2(450, 450)
 
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO

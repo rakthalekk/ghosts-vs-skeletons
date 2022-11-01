@@ -323,6 +323,14 @@ margin_bottom = 118.0
 rect_scale = Vector2( 2, 2 )
 text = "Skeleton Count: "
 
+[node name="TimerCount" type="Label" parent="."]
+margin_left = 1242.0
+margin_top = 144.0
+margin_right = 1346.0
+margin_bottom = 158.0
+rect_scale = Vector2( 2, 2 )
+text = "Time Left: "
+
 [node name="PauseMenu" parent="." instance=ExtResource( 3 )]
 visible = false
 margin_left = 259.0
@@ -339,6 +347,11 @@ anims/fade_out_ghost = SubResource( 11 )
 stream = ExtResource( 10 )
 volume_db = 24.0
 
+[node name="CountdownTimer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
 [connection signal="create_human_icon" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_create_human_icon"]
 [connection signal="create_powerup_icon" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_create_powerup_icon"]
 [connection signal="fade_out_ghost" from="HBoxContainer/ViewportContainer/Viewport/Map" to="." method="_on_Map_fade_out_ghost"]
@@ -346,3 +359,4 @@ volume_db = 24.0
 [connection signal="turn_off_corrupted_music" from="HBoxContainer/ViewportContainer/Viewport/Map" to="." method="_on_Map_turn_off_corrupted_music"]
 [connection signal="update_minimap_stairs" from="HBoxContainer/ViewportContainer/Viewport/Map" to="Minimap" method="_on_Map_update_minimap_stairs"]
 [connection signal="timeout" from="Minimap/AlternateIcons" to="Minimap" method="_on_AlternateIcons_timeout"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
