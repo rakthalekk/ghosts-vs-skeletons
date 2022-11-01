@@ -30,9 +30,9 @@ func _physics_process(delta):
 	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 0.9, false)
 	
 	if direction.x > 0:
-		$Sprite.scale.x = 1
-	elif direction.x < 0:
 		$Sprite.scale.x = -1
+	elif direction.x < 0:
+		$Sprite.scale.x = 1
 
 
 func skeletonify():

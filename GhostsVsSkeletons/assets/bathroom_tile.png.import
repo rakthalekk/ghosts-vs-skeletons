@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AOERadius.png-1f7151e316e2aa7fc53deb1175731289.stex"
+path="res://.import/bathroom_tile.png-7f9fb4b603c2396e3afbca765fc88f19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/AOERadius.png"
-dest_files=[ "res://.import/AOERadius.png-1f7151e316e2aa7fc53deb1175731289.stex" ]
+source_file="res://assets/bathroom_tile.png"
+dest_files=[ "res://.import/bathroom_tile.png-7f9fb4b603c2396e3afbca765fc88f19.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

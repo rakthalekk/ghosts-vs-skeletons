@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AOERadius.png-1f7151e316e2aa7fc53deb1175731289.stex"
+path="res://.import/GAtk 6FRM Sheet_20221031125014.png-30a30e190c16ec46b8dc1db6e1154724.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/AOERadius.png"
-dest_files=[ "res://.import/AOERadius.png-1f7151e316e2aa7fc53deb1175731289.stex" ]
+source_file="res://assets/GAtk 6FRM Sheet_20221031125014.png"
+dest_files=[ "res://.import/GAtk 6FRM Sheet_20221031125014.png-30a30e190c16ec46b8dc1db6e1154724.stex" ]
 
 [params]
 

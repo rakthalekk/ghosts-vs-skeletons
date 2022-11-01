@@ -8,6 +8,10 @@ const WATERSPRITE = preload("res://assets/Holy Water.png")
 const CROSSSPRITE = preload("res://assets/Cross.png")
 var slow_sprite = WATERSPRITE
 
+const HAPPY = preload("res://assets/Happy Statue_20221031133621.png")
+const MAD = preload("res://assets/Mad Statue_20221031133628.png")
+var statue_sprite = HAPPY
+
 onready var map = $"../HBoxContainer/ViewportContainer/Viewport/Map"
 onready var skeleton = map.get_node("SkeletonPlayer")
 onready var ghost = map.get_node("GhostPlayer")
@@ -24,9 +28,9 @@ var powerup_icons = []
 func _ready():
 	for statue in statues.get_children():
 		var s = Sprite.new()
-		s.texture = load("res://icon.png")
+		s.texture = HAPPY
 		s.scale = Vector2(0.3, 0.3)
-		s.position = statue.global_position / 14.2 - Vector2(0, 10)
+		s.position = statue.global_position / 14.2 - Vector2(0, 18)
 		$StatueIcons.add_child(s)
 
 
@@ -43,6 +47,13 @@ func _process(delta):
 
 
 func _on_Map_update_minimap_stairs():
+	if statue_sprite == HAPPY:
+		statue_sprite= MAD
+	else:
+		statue_sprite = HAPPY
+	for statue in $StatueIcons.get_children():
+		statue.texture = statue_sprite
+	
 	$Stairs.trigger_stairs()
 
 

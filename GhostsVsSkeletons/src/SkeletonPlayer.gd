@@ -31,11 +31,20 @@ func _physics_process(delta):
 	
 	if !skeleton_is_kill && !interacting:
 		if !is_on_floor() && direction.x != 0:
-			$AnimationPlayer.play("jumping")
+			if $CVDuration.time_left > 0:
+				$AnimationPlayer.play("leaping")
+			else:
+				$AnimationPlayer.play("jumping")
 		elif direction.x != 0:
-			$AnimationPlayer.play("moving")
+			if $CVDuration.time_left > 0:
+				$AnimationPlayer.play("stride")
+			else:
+				$AnimationPlayer.play("moving")
 		else:
-			$AnimationPlayer.play("idle")
+			if $CVDuration.time_left > 0:
+				$AnimationPlayer.play("stance")
+			else:
+				$AnimationPlayer.play("idle")
 
 		if direction.x > 0:
 			$Sprite.scale.x = 1
@@ -145,3 +154,11 @@ func _on_ArcBoneCooldown_timeout():
 func oof():
 	$Oof.play()
 	$AnimationPlayer.play("oof")
+
+
+func skeleton_lose():
+	Global.winner = "ghost"
+	Global.total_humans = 0
+	Global.skeleton_count = 0
+	Global.ghost_count = 0
+	get_tree().change_scene("res://src/GameOverScreen.tscn")

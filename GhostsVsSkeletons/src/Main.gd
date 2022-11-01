@@ -34,10 +34,12 @@ func _process(delta):
 
 func _on_Map_fade_out_ghost():
 	$AnimationPlayer.play("fade_out_ghost")
+	$CountdownTimer.stop()
 
 
 func play_corrupted_music():
 	$CorruptedMusic.play()
+	$"HBoxContainer/ViewportContainer/Viewport/Map".get_node("Western/MakeAngry").start()
 
 
 func _on_Map_turn_off_corrupted_music():
