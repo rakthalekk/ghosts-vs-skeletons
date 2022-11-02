@@ -12,6 +12,13 @@ const HAPPY = preload("res://assets/Happy Statue_20221031133621.png")
 const MAD = preload("res://assets/Mad Statue_20221031133628.png")
 var statue_sprite = HAPPY
 
+const HUMAN_BOY = preload("res://assets/Human Boy Alive Icon.png")
+const HUMAN_BOY_SKELETON = preload("res://assets/Human Boy Skeleton Icon.png")
+const HUMAN_BOY_GHOST = preload("res://assets/Human Boy Ghost Icon.png")
+const HUMAN_GIRL = preload("res://assets/Human Girl Alive Icon.png")
+const HUMAN_GIRL_SKELETON = preload("res://assets/Human Girl Skeleton Icon.png")
+const HUMAN_GIRL_GHOST = preload("res://assets/Human Girl Ghost Icon.png")
+
 onready var map = $"../HBoxContainer/ViewportContainer/Viewport/Map"
 onready var skeleton = map.get_node("SkeletonPlayer")
 onready var ghost = map.get_node("GhostPlayer")
@@ -41,7 +48,21 @@ func _process(delta):
 	
 	var index = 0
 	for human in humans.get_children():
-		human_icons[index].texture = human.get_node("Sprite").texture
+		if human.gender == "male":
+			if human.type == "alive":
+				human_icons[index].texture = HUMAN_BOY
+			elif human.type == "skeleton":
+				human_icons[index].texture = HUMAN_BOY_SKELETON
+			else:
+				human_icons[index].texture = HUMAN_BOY_GHOST
+		else:
+			if human.type == "alive":
+				human_icons[index].texture = HUMAN_GIRL
+			elif human.type == "skeleton":
+				human_icons[index].texture = HUMAN_GIRL_SKELETON
+			else:
+				human_icons[index].texture = HUMAN_GIRL_GHOST
+		
 		human_icons[index].position = human.global_position / 14.2
 		index += 1
 
@@ -59,7 +80,6 @@ func _on_Map_update_minimap_stairs():
 
 func _on_Map_create_human_icon():
 	var human_icon = Sprite.new()
-	human_icon.scale = Vector2(0.3, 0.3)
 	$HumanIcons.add_child(human_icon)
 	human_icons.append(human_icon)
 

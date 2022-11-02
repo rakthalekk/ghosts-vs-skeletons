@@ -58,7 +58,9 @@ func get_input():
 	if Input.is_action_just_released("skeleton_fall_through"):
 		set_collision_mask_bit(4, true)
 	if Input.is_action_just_pressed("skeleton_kill"):
-		$AnimationPlayer.play("kill")
+		$AttackSound.play()
+		if $AOEDuration.time_left == 0:
+			$AnimationPlayer.play("kill") 
 		skeleton_is_kill = true
 		if $RangedUpgradeDuration.time_left > 0:
 			var bone = BONEPROJECTILE.instance()
@@ -66,6 +68,7 @@ func get_input():
 			bone.global_position = global_position
 			get_parent().add_child(bone)
 		if $AOEDuration.time_left > 0:
+			$AnimationPlayer.play("aoe_attack")
 			var aoe = AOECONVERT.instance()
 			aoe.user = "Skeleton"
 			add_child(aoe)
@@ -98,6 +101,7 @@ func calculate_move_velocity(
 	var v = linear_velocity
 	v.x = speed.x * direction.x
 	if direction.y != 0.0:
+		$JumpSound.play()
 		v.y = speed.y * direction.y
 		if $CVDuration.time_left > 0: # 30% jump height boost
 			v.y *= 1.3
@@ -129,22 +133,32 @@ func slow_other_player():
 
 func inflict_speed_penalty():
 	$SpeedPenalty.start($SpeedPenalty.time_left + Global.SPEED_PENALTY_DURATION) # Adds 15 seconds of slowing 
+	$PickupSound.stream = load("res://assets/sounds/slow-powerup.wav")
+	$PickupSound.play()
 
 
 func get_ranged_upgrade():
 	$RangedUpgradeDuration.start($RangedUpgradeDuration.time_left + Global.RANGED_UPGRADE_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/projectile-powerup.wav")
+	$PickupSound.play()
 
 
 func get_mask():
 	$AOEDuration.start($AOEDuration.time_left + Global.AOE_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/mask-powerup.wav")
+	$PickupSound.play()
 
 
 func get_soda():
 	$SodaDuration.start($SodaDuration.time_left + Global.SODA_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/soda-powerup.wav")
+	$PickupSound.play()
 
 
 func get_cv():
 	$CVDuration.start($CVDuration.time_left + Global.CV_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/cv-powerup.wav")
+	$PickupSound.play()
 
 
 func _on_ArcBoneCooldown_timeout():

@@ -9,6 +9,7 @@ onready var map = get_parent().get_parent()
 func activate():
 	stairs.trigger_stairs()
 	map.activate_statue()
+	$ClickSound.play()
 
 
 func switch_texture():

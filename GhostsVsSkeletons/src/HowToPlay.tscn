@@ -5,12 +5,14 @@
 [ext_resource path="res://assets/game-of-squids/new_dynamicfont.tres" type="DynamicFont" id=3]
 
 [node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 24.0
-margin_top = 11.0
-margin_right = 23.0
-margin_bottom = 7.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -580.0
+margin_top = -398.0
+margin_right = 580.0
+margin_bottom = 398.0
 script = ExtResource( 2 )
 
 [node name="HowToPlayScreen(2)" type="Sprite" parent="."]
@@ -18,20 +20,11 @@ position = Vector2( 593, 552 )
 scale = Vector2( 1.97222, 1.82031 )
 texture = ExtResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 807.0
-margin_bottom = 82.0
-
-[node name="ReturnButton" type="Button" parent="VBoxContainer"]
-margin_right = 807.0
-margin_bottom = 82.0
-custom_fonts/font = ExtResource( 3 )
-text = "Return To Main Menu"
-
 [node name="Label" type="Label" parent="."]
-margin_top = 44.0
-margin_right = 949.0
-margin_bottom = 288.0
+margin_left = 121.0
+margin_top = 41.0
+margin_right = 833.0
+margin_bottom = 285.0
 rect_scale = Vector2( 1.3, 1.3 )
 text = "Objective: As either a Skeleton or a Ghost, Kill as many humans as you can before the time runs out, whoever
 kills the most humans wins
@@ -40,8 +33,17 @@ Here are some Tips to have more Kills than your opponent:
 --- There are several power ups that boosts your stats, so make sure to collect them when you can
 --- You can use Statues around the map to change its layout to inconvience the other player
 --- To fall through transparent platforms as the Skeleton, press the S button
---- The \"Special\" Action can only be performed by obtaining a certain power-up and is not regularly avaliable
---- The Skeleton's Attack is a projectile while the Ghost must be in a close enough range"
+--- The \"Special\" Action can only be performed by obtaining a certain power-up and is not regularly avaliable"
 valign = 1
 
-[connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[node name="ReturnButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -403.5
+margin_top = 14.0
+margin_right = 403.5
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 3 )
+text = "Return To Main Menu"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

@@ -63,7 +63,9 @@ func get_direction():
 
 func get_input():
 	if Input.is_action_just_pressed("ghost_kill"):
-		$AnimationPlayer.play("kill")
+		$AttackSound.play()
+		if $AOEDuration.time_left == 0:
+			$AnimationPlayer.play("kill")
 		ghost_is_kill = true
 		if $RangedUpgradeDuration.time_left > 0:
 			var orb = ORBPROJECTILE.instance()
@@ -71,6 +73,7 @@ func get_input():
 			orb.direction.x = -$Sprite.scale.x
 			get_parent().add_child(orb)
 		if $AOEDuration.time_left > 0:
+			$AnimationPlayer.play("aoe_attack")
 			var aoe = AOECONVERT.instance()
 			aoe.user = "Ghost"
 			add_child(aoe)
@@ -108,22 +111,32 @@ func slow_other_player():
 
 func inflict_speed_penalty():
 	$SpeedPenalty.start($SpeedPenalty.time_left + Global.SPEED_PENALTY_DURATION) # Adds 15 seconds of slowing 
+	$PickupSound.stream = load("res://assets/sounds/slow-powerup.wav")
+	$PickupSound.play()
 
 
 func get_ranged_upgrade():
 	$RangedUpgradeDuration.start($RangedUpgradeDuration.time_left + Global.RANGED_UPGRADE_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/projectile-powerup.wav")
+	$PickupSound.play()
 
 
 func get_mask():
 	$AOEDuration.start($AOEDuration.time_left + Global.AOE_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/mask-powerup.wav")
+	$PickupSound.play()
 
 
 func get_soda():
 	$SodaDuration.start($SodaDuration.time_left + Global.SODA_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/soda-powerup.wav")
+	$PickupSound.play()
 
 
 func get_cv():
 	$CVDuration.start($CVDuration.time_left + Global.CV_DURATION)
+	$PickupSound.stream = load("res://assets/sounds/cv-powerup.wav")
+	$PickupSound.play()
 
 
 func _on_ArcOrbCooldown_timeout():

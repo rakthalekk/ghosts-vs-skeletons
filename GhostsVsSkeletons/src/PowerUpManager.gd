@@ -10,6 +10,7 @@ const SODA = preload("res://src/FreeSodaFromGoldenDragon.tscn")
 const CV = preload("res://src/CVPowerup.tscn")
 
 var powerups = [SLOW, RANGED, MASK, SODA, CV]
+#var powerups = [CV]
 
 var rng = RandomNumberGenerator.new()
 

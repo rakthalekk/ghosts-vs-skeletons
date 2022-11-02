@@ -1,7 +1,8 @@
 class_name Human
 extends GroundedActor
 
-var converted = false
+var gender = "male"
+var type = "alive"
 
 onready var ghost = get_parent().get_parent().get_node("GhostPlayer")
 onready var skeleton = get_parent().get_parent().get_node("SkeletonPlayer")
@@ -9,6 +10,8 @@ onready var skeleton = get_parent().get_parent().get_node("SkeletonPlayer")
 func _ready():
 	direction.x = 1 if randf() > 0.5 else -1
 	Global.total_humans += 1
+	if gender == "female":
+		$AnimationPlayer.play("human_female")
 
 
 func _physics_process(delta):
@@ -36,17 +39,23 @@ func _physics_process(delta):
 
 
 func skeletonify():
-	if !converted:
-		converted = true
-		$AnimationPlayer.play("skeleton")
+	if type == "alive":
+		type = "skeleton"
+		if gender == "female":
+			$AnimationPlayer.play("skeleton_female")
+		else:
+			$AnimationPlayer.play("skeleton_male")
 		Global.skeleton_count += 1
 		set_collision_layer_bit(3, false)
 
 
 func ghostify():
-	if !converted:
-		converted = true
-		$AnimationPlayer.play("ghost")
+	if type == "alive":
+		type = "ghost"
+		if gender == "female":
+			$AnimationPlayer.play("ghost_female")
+		else:
+			$AnimationPlayer.play("ghost_male")
 		Global.ghost_count += 1
 		set_collision_layer_bit(3, false)
 

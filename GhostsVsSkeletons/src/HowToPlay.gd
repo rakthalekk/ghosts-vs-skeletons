@@ -8,10 +8,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/ReturnButton.grab_focus()
+	$ReturnButton.grab_focus()
 
 func _on_ReturnButton_pressed():
-	get_tree().change_scene("res://src/Menu.tscn")
+	hide()
+	get_parent().get_node("MainMenu").show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

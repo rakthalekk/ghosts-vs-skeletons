@@ -8,13 +8,15 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/StartButton.grab_focus()
+	$MainMenu/StartButton.grab_focus()
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://src/Main.tscn")
 
 func _on_OptionsButton_pressed():
-	get_tree().change_scene("res://src/HowToPlay.tscn")
+	#get_tree().change_scene("res://src/HowToPlay.tscn")
+	$HowToPlay.show()
+	$MainMenu.hide()
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
