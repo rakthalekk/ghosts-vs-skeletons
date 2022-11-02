@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SMM Icon.png-60e189ef0c90e7e42d46ce2fde83f19f.stex"
+path="res://.import/Chair Front.png-857f5d7296459028c396e7419358576c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SMM Icon.png"
-dest_files=[ "res://.import/SMM Icon.png-60e189ef0c90e7e42d46ce2fde83f19f.stex" ]
+source_file="res://assets/Chair Front.png"
+dest_files=[ "res://.import/Chair Front.png-857f5d7296459028c396e7419358576c.stex" ]
 
 [params]
 

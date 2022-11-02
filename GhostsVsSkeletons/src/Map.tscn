@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://src/GhostPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/SkeletonPlayer.tscn" type="PackedScene" id=2]
@@ -10,12 +10,23 @@
 [ext_resource path="res://src/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Map.gd" type="Script" id=9]
 [ext_resource path="res://src/Statue.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/GoldenDragonSign.png" type="Texture" id=11]
 [ext_resource path="res://src/PowerUpManager.gd" type="Script" id=12]
 [ext_resource path="res://assets/StoneBrick.png" type="Texture" id=13]
 [ext_resource path="res://assets/StoneBackground.png" type="Texture" id=14]
 [ext_resource path="res://src/Foreground.gd" type="Script" id=15]
 [ext_resource path="res://assets/bathroom_background.png" type="Texture" id=16]
 [ext_resource path="res://src/Stairs.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/WesternSign.png" type="Texture" id=18]
+[ext_resource path="res://assets/Chair Front.png" type="Texture" id=19]
+[ext_resource path="res://assets/Chair Side.png" type="Texture" id=20]
+[ext_resource path="res://assets/Table 1.png" type="Texture" id=21]
+[ext_resource path="res://assets/Table 2.png" type="Texture" id=22]
+[ext_resource path="res://assets/Painting 1.png" type="Texture" id=23]
+[ext_resource path="res://assets/Painting 2.png" type="Texture" id=24]
+[ext_resource path="res://assets/Painting 3.png" type="Texture" id=25]
+[ext_resource path="res://assets/Painting 4.png" type="Texture" id=26]
+[ext_resource path="res://assets/Painting 5.png" type="Texture" id=27]
 
 [sub_resource type="TileSet" id=66]
 0/name = "StoneBackground.png 0"
@@ -818,9 +829,216 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 autoplay = true
 
-[node name="The Toilet" type="Sprite" parent="."]
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="The Toilet" type="Sprite" parent="Environment"]
 position = Vector2( 4065, 832 )
 texture = ExtResource( 5 )
+
+[node name="GDSign" type="Sprite" parent="Environment"]
+position = Vector2( 3153, 2921 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 11 )
+
+[node name="WesternSign" type="Sprite" parent="Environment"]
+position = Vector2( 177, 2301 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 18 )
+
+[node name="Chair" type="Sprite" parent="Environment"]
+position = Vector2( 1183, 4431 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair15" type="Sprite" parent="Environment"]
+position = Vector2( 954, 4430 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair3" type="Sprite" parent="Environment"]
+position = Vector2( 3419, 4431 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair5" type="Sprite" parent="Environment"]
+position = Vector2( 4188, 3534 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair12" type="Sprite" parent="Environment"]
+position = Vector2( 2189, 1743 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair4" type="Sprite" parent="Environment"]
+position = Vector2( 3236, 4431 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair8" type="Sprite" parent="Environment"]
+position = Vector2( 3290, 2512 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair10" type="Sprite" parent="Environment"]
+position = Vector2( 3697, 1743 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair14" type="Sprite" parent="Environment"]
+position = Vector2( 1845, 847 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair6" type="Sprite" parent="Environment"]
+position = Vector2( 135, 3534 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair9" type="Sprite" parent="Environment"]
+position = Vector2( 135, 2639 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 20 )
+
+[node name="Chair2" type="Sprite" parent="Environment"]
+position = Vector2( 1293, 4431 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+
+[node name="Chair7" type="Sprite" parent="Environment"]
+position = Vector2( 1917, 2639 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+
+[node name="Chair16" type="Sprite" parent="Environment"]
+position = Vector2( 1247, 2511 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+
+[node name="Chair11" type="Sprite" parent="Environment"]
+position = Vector2( 2068, 1743 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+
+[node name="Chair13" type="Sprite" parent="Environment"]
+position = Vector2( 169, 847 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+
+[node name="Table" type="Sprite" parent="Environment"]
+position = Vector2( 3329, 4431 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 21 )
+
+[node name="Table3" type="Sprite" parent="Environment"]
+position = Vector2( 4084, 3535 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 21 )
+
+[node name="Table5" type="Sprite" parent="Environment"]
+position = Vector2( 3797, 1743 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 21 )
+
+[node name="Table2" type="Sprite" parent="Environment"]
+position = Vector2( 1069, 4432 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 22 )
+
+[node name="Table4" type="Sprite" parent="Environment"]
+position = Vector2( 255, 2639 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 22 )
+
+[node name="Table6" type="Sprite" parent="Environment"]
+position = Vector2( 313, 847 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 22 )
+
+[node name="Painting" type="Sprite" parent="Environment"]
+position = Vector2( 1116, 4176 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 23 )
+
+[node name="Painting6" type="Sprite" parent="Environment"]
+position = Vector2( 3837, 2295 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 23 )
+
+[node name="Painting11" type="Sprite" parent="Environment"]
+position = Vector2( 2262, 1503 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 23 )
+
+[node name="Painting2" type="Sprite" parent="Environment"]
+position = Vector2( 3326, 4221 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 24 )
+
+[node name="Painting15" type="Sprite" parent="Environment"]
+position = Vector2( 290, 4086 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 24 )
+
+[node name="Painting13" type="Sprite" parent="Environment"]
+position = Vector2( 2104, 646 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 24 )
+
+[node name="Painting10" type="Sprite" parent="Environment"]
+position = Vector2( 3962, 1575 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 24 )
+
+[node name="Painting3" type="Sprite" parent="Environment"]
+position = Vector2( 4144, 3379 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="Painting7" type="Sprite" parent="Environment"]
+position = Vector2( 2105, 2404 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="Painting12" type="Sprite" parent="Environment"]
+position = Vector2( 427, 669 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="Painting4" type="Sprite" parent="Environment"]
+position = Vector2( 1467, 3220 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="Painting16" type="Sprite" parent="Environment"]
+position = Vector2( 2057, 4046 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="Painting8" type="Sprite" parent="Environment"]
+position = Vector2( 2443, 2403 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="Painting5" type="Sprite" parent="Environment"]
+position = Vector2( 637, 2495 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
+
+[node name="Painting17" type="Sprite" parent="Environment"]
+position = Vector2( 2473, 4043 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
+
+[node name="Painting14" type="Sprite" parent="Environment"]
+position = Vector2( 1166, 3015 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
+
+[node name="Painting9" type="Sprite" parent="Environment"]
+position = Vector2( 1528, 1463 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
 
 [node name="PowerUpManager" type="Node2D" parent="."]
 script = ExtResource( 12 )
@@ -828,7 +1046,7 @@ script = ExtResource( 12 )
 [node name="Locations" type="Node2D" parent="PowerUpManager"]
 
 [node name="RandPosition" type="Position2D" parent="PowerUpManager/Locations"]
-position = Vector2( 3232, 4337 )
+position = Vector2( 3327, 4358 )
 
 [node name="CrossPosition" type="Position2D" parent="PowerUpManager/Locations"]
 position = Vector2( 510, 4290 )
@@ -858,16 +1076,16 @@ one_shot = true
 [node name="Statues" type="Node2D" parent="."]
 
 [node name="Statue" parent="Statues" instance=ExtResource( 10 )]
-position = Vector2( 2275, 4319 )
+position = Vector2( 2275, 4322 )
 
 [node name="Statue2" parent="Statues" instance=ExtResource( 10 )]
-position = Vector2( 2272, 2655 )
+position = Vector2( 2272, 2658 )
 
 [node name="Statue3" parent="Statues" instance=ExtResource( 10 )]
-position = Vector2( 1380, 740 )
+position = Vector2( 1380, 738 )
 
 [node name="Statue4" parent="Statues" instance=ExtResource( 10 )]
-position = Vector2( 462, 3557 )
+position = Vector2( 462, 3555 )
 
 [node name="Statue5" parent="Statues" instance=ExtResource( 10 )]
 position = Vector2( 4074, 1761 )

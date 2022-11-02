@@ -76,7 +76,8 @@ _global_script_class_icons={
 
 config/name="Ghosts Vs Skeletons"
 run/main_scene="res://src/Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/Game Icon.png"
+config/windows_native_icon="res://assets/Game Icon.ico"
 
 [autoload]
 

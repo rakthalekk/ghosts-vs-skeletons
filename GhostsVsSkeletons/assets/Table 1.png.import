@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SMM Icon.png-60e189ef0c90e7e42d46ce2fde83f19f.stex"
+path="res://.import/Table 1.png-e527a822f4c4649b327687a24b158e90.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SMM Icon.png"
-dest_files=[ "res://.import/SMM Icon.png-60e189ef0c90e7e42d46ce2fde83f19f.stex" ]
+source_file="res://assets/Table 1.png"
+dest_files=[ "res://.import/Table 1.png-e527a822f4c4649b327687a24b158e90.stex" ]
 
 [params]
 
