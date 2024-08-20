@@ -11,6 +11,8 @@ func _ready():
 	if Global.winner == "ghost":
 		$WinnerSprite.texture = load("res://assets/Standing Ghost.png")
 		# Replace with function body.
+	
+	$PlayAgain.grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

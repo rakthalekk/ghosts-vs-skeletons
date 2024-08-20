@@ -5,15 +5,14 @@ extends Control
 # var a = 2
 # var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$ReturnButton.grab_focus()
-
 func _on_ReturnButton_pressed():
 	hide()
 	get_parent().get_node("MainMenu").show()
+	get_parent().get_node("MainMenu/OptionsButton").grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func grab_button():
+	$ReturnButton.grab_focus()

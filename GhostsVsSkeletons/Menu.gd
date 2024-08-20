@@ -16,6 +16,7 @@ func _on_StartButton_pressed():
 func _on_OptionsButton_pressed():
 	#get_tree().change_scene("res://src/HowToPlay.tscn")
 	$HowToPlay.show()
+	$HowToPlay.grab_button()
 	$MainMenu.hide()
 
 func _on_QuitButton_pressed():

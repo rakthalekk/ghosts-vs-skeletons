@@ -11,6 +11,9 @@ func set_is_paused(value):
 	is_paused = value
 	get_tree().paused = is_paused
 	visible = is_paused
+	
+	if is_paused:
+		$ResumeBtn.grab_focus()
 
 func _on_ResumeBtn_pressed():
 	self.is_paused = false
