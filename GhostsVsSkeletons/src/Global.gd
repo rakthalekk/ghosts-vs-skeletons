@@ -10,3 +10,7 @@ var total_humans = 0
 var ghost_count = 0
 var skeleton_count = 0
 var winner = ""
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
